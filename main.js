@@ -14,7 +14,7 @@ function divide(a, b) {
 
 let num1 = 0;
 let num2 = 0;
-let operator;
+let operator = '';
 
 
 function operate(operator, num1, num2) {
@@ -30,3 +30,82 @@ function operate(operator, num1, num2) {
         return 'Invalid Operator'
     }
 }
+
+
+let displayValue = 0;
+
+function display(digits) {
+    displayValue = displayValue * 10 + digits;
+    document.querySelector('.display').textContent = displayValue;
+}
+
+document.querySelector('.one').addEventListener('click', function(){
+    display("1")
+})
+document.querySelector('.two').addEventListener('click', function(){
+    display("2")
+})
+document.querySelector('.three').addEventListener('click', function(){
+    display("3")
+})
+
+document.querySelector('.four').addEventListener('click', function(){
+    display("4")
+})
+
+document.querySelector('.five').addEventListener('click', function(){
+    display("5")
+})
+
+document.querySelector('.six').addEventListener('click', function(){
+    display("6")
+})
+document.querySelector('.seven').addEventListener('click', function(){
+    display("7")
+})
+document.querySelector('.eight').addEventListener('click', function(){
+    display("8")
+})
+document.querySelector('.nine').addEventListener('click', function(){
+    display("9")
+})
+document.querySelector('.zero').addEventListener('click', function(){
+    display("0")
+})
+
+
+document.querySelector('.plus').addEventListener('click', function() {
+    num1 = displayValue
+    operator = '+';
+    displayValue = "";
+
+})
+
+document.querySelector('.minus').addEventListener('click', function() {
+    num1 = displayValue
+    operator = '-';
+    displayValue = "";
+
+})
+
+document.querySelector('.multiply').addEventListener('click', function() {
+    num1 = displayValue
+    operator = '*';
+    displayValue = "";
+
+})
+
+document.querySelector('.divide').addEventListener('click', function() {
+    num1 = displayValue
+    operator = '/';
+    displayValue = "";
+
+})
+
+document.querySelector('.equal').addEventListener('click', function() {
+    num2 = displayValue;
+    const result = operate(operator, num1, num2);
+    displayValue = result;
+    document.querySelector('.display').textContent = displayValue;
+
+})
