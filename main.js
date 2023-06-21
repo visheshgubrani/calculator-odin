@@ -30,12 +30,13 @@ function operate(operator, num1, num2) {
         return 'Invalid Operator'
     }
 }
+ 
 
-
-let displayValue = 0;
+let displayValue = '';
 
 function display(digits) {
-    displayValue = displayValue * 10 + digits;
+    displayValue += parseInt(digits);
+    
     document.querySelector('.display').textContent = displayValue;
 }
 
@@ -75,37 +76,48 @@ document.querySelector('.zero').addEventListener('click', function(){
 
 
 document.querySelector('.plus').addEventListener('click', function() {
-    num1 = displayValue
+    num1 = parseInt(displayValue)
     operator = '+';
     displayValue = "";
 
 })
 
 document.querySelector('.minus').addEventListener('click', function() {
-    num1 = displayValue
+    num1 = parseInt(displayValue)
     operator = '-';
     displayValue = "";
 
 })
 
 document.querySelector('.multiply').addEventListener('click', function() {
-    num1 = displayValue
+    num1 = parseInt(displayValue)
     operator = '*';
     displayValue = "";
 
 })
 
 document.querySelector('.divide').addEventListener('click', function() {
-    num1 = displayValue
+    num1 = parseInt(displayValue)
     operator = '/';
     displayValue = "";
 
 })
 
 document.querySelector('.equal').addEventListener('click', function() {
-    num2 = displayValue;
+    num2 = parseInt(displayValue)
     const result = operate(operator, num1, num2);
     displayValue = result;
+    document.querySelector('.display').textContent = parseInt(displayValue);
+
+
+})
+
+
+document.querySelector('.ac').addEventListener('click', function(){ 
+    num1 = 0;
+    num2 = 0;
+    displayValue = parseInt("0")
     document.querySelector('.display').textContent = displayValue;
 
+    
 })
